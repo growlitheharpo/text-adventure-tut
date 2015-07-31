@@ -37,6 +37,20 @@ class MapTile:
         return moves
 
 
+class DynamicTile(MapTile):
+    def __init__(self, x, y, actors, items, description):
+        super().__init__(x, y)
+        self.actors = actors
+        self.items = items
+        self.description = description
+
+    def intro_text(self):
+        return self.description
+
+    def modify_player(self, player):
+        pass  # TODO: will later need to implement interacting with actors and items
+
+
 class StartingRoom(MapTile):
     def intro_text(self):
         return """

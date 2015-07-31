@@ -1,5 +1,5 @@
 <tileTypes>
-	<tile id="0000" actors="0" items="0" description="Another unremarkable part of the cave. You must forge onwards."> 
+	<tile id="0000" actors="0" items="0" description="Another unremarkable part of the cave. You must forge onwards.">
 		</tile>
 	<tile id="0001" actors="0" items="0" description="You find yourself in a cave with a flickering torch on the wall.\nYou can make out four paths, each equally as dark and foreboding.">
 		</tile>
@@ -7,11 +7,9 @@
 		<actor id="0" type="GiantSpider"/> 
 		</tile>
 	<tile id="0003" actors="2" items="2" description="A small weapons shop.">
-		<actor id=0> "BaseMerchant" </actor>
-		<actor id=1> "Dog" </actor>
-		<item id=0> "Gold15" </item>
-		<item id=1> "Dagger" </item>
+		<actor id="0">BaseMerchant</actor>
+		<actor id="1">Dog</actor>
+		<item id="0">Gold15</item>
+		<item id="1">Dagger</item>
 		</tile>
-
-
 </tileTypes>

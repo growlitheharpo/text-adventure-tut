@@ -1,0 +1,22 @@
+map.txt
+-------- 
+This is the actual map layout. When finished, it will be spreadsheet style map of the tiles in the game's map.
+
+map.xml
+--------
+This is the dictionary of tile types. Every tile is identified with a seven-digit ID. The meaning of the ID for designers is as follows:
+1-3: A three-letter code for the environment of the tile. For example: CAV (cave), URB (urban), FST (forest), etc.
+
+4: Either U, G, or A. U means a unique tile (special loot, special NPC, etc.). G is a generic empty tile, and A is a tile that auto-generates something (such as loot or an NPC).
+
+5-7: Meaning depends on the value of the 4th letter.
+U: A hex number (0-f) that serve as a unique ID.
+G: Should always be xxx to indicate a generic tile for that environment.
+A: Use the following key:
+	000	Totally random loot
+	900	Random valuable loot
+	G00	Random amount of gold
+	Gxx	Amount of gold equal to xx (for more than 99 gold, use a unique tile).
+	0M0	Random/generic merchant
+	0MW	Random/generic weapons merchant
+	0MS	Random/generic supply merchant

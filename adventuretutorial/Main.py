@@ -27,5 +27,8 @@ def play():
                     player.do_action(action, **action.kwargs)
                     break
 
+
 if __name__ == "__main__":
     play()
+    """print("Sorry, the game has been deleted.")
+    world.load_tiles() """
