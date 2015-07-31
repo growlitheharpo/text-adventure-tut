@@ -1,20 +1,21 @@
 __author__ = 'Jay'
 
-class Enemy:
-    def __init__(self, name, hp, damage):
-        self.name = name
-        self.hp = hp
-        self.damage = damage
+from classes.actor import NPC
+from classes.actor import Animal
 
-    def is_alive(self):
-        return self.hp > 0
+import classes.items
 
 
-class GiantSpider(Enemy):
+class GiantSpider(Animal):
     def __init__(self):
-        super().__init__(name="Giant Spider", hp=10, damage=2)
+        super().__init__(hp=10, inventory=[], name="Giant Spider", inclination=0, damage=2)
 
 
-class Ogre(Enemy):
+class Ogre(Animal):
     def __init__(self):
-        super().__init__(name="Ogre", hp=30, damage=15)
+        super().__init__(hp=30, inventory=[], name="Ogre", inclination=0, damage=15)
+
+
+class BaseMerchant(NPC):  # in the enemy file because fuck economics
+    def __init__(self):
+        super().__init__(hp=50, inventory=[classes.items.Gold(500)], name="George", faction="MERCHANTS", inclination=10)

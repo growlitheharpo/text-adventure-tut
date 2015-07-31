@@ -3,13 +3,15 @@ __author__ = 'Jay'
 import random
 import classes.items
 import world
+import classes.actor
 
 
-class Player:
-    inventory = [classes.items.Gold(15), classes.items.Rock()]
-    hp = 100
+class Player(classes.actor.Actor):
     location_x, location_y = (2, 4)
     victory = False
+
+    def __init__(self):
+        super().__init__(100, [classes.items.Gold(15), classes.items.Rock()])
 
     def is_alive(self):
         return self.hp > 0
