@@ -19,10 +19,10 @@ def load_tiles():
             if tile_name == '':
                 _world[(x, y)] = None
             else:
-                _world[(x, y)] = getattr(classes.tiles, tile_name)(x, y)
+                _world[(x, y)] = _get_tile(tile_name, x, y)
 
 
-def _get_tile(tile_id):
+def _get_tile(tile_id, x, y):
     tree = ElementTree.parse('resources/map.xml')
     root = tree.getroot()
     for tile in root:
@@ -30,23 +30,19 @@ def _get_tile(tile_id):
             root = tile
             break
 
+    actors = []
+    items = []
 
-
-    """
-    tile_id_to_find = "0003"
-
-    tree = ElementTree.parse('resources/map.xml')
-    root = tree.getroot()
-    for actor in root:
-        if actor.attrib['id'] == tile_id_to_find:
-            root = actor
-            break
-
-    if root.attrib['actors'] != 0:
-        print("Room has the following actors:")
+    if int(root.attrib['actors']) > 0:
         for actor in root.iter('actor'):
-            print(actor.text)
-    """
+            actors.append(actor.text)
+
+    if int(root.attrib['items']) > 0:
+        for item in root.iter('item'):
+            items.append(item.text)
+
+    # return classes.tiles.StartingRoom(x, y)
+    return classes.tiles.DynamicTile(x, y, actors, items, root.attrib['description'])
 
 
 def tile_exists(x, y):

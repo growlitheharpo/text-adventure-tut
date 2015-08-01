@@ -1,8 +1,8 @@
-			LeaveCaveRoom	
-	EmptyCavePath	EmptyCavePath	GiantSpiderRoom	
-		EmptyCavePath		
-		EmptyCavePath		
-GiantSpiderRoom	EmptyCavePath	StartingRoom	EmptyCavePath	FindDaggerRoom
-		EmptyCavePath		
-		EmptyCavePath		
-		EmptyCavePath		
+			CAVG000	
+	CAVG000	CAVG000	CAVU002	
+		CAVG000		
+		CAVG000		
+CAVU002	CAVG000	CAVU001	CAVG000	CAVU003
+		CAVG000		
+		CAVG000		
+		CAVG000		

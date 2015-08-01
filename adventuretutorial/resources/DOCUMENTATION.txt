@@ -11,7 +11,7 @@ This is the dictionary of tile types. Every tile is identified with a seven-digi
 
 5-7: Meaning depends on the value of the 4th letter.
 U: A hex number (0-f) that serve as a unique ID.
-G: Should always be xxx to indicate a generic tile for that environment.
+G: A number (0-9) for various generic tiles for that environment.
 A: Use the following key:
 	000	Totally random loot
 	900	Random valuable loot
@@ -20,3 +20,4 @@ A: Use the following key:
 	0M0	Random/generic merchant
 	0MW	Random/generic weapons merchant
 	0MS	Random/generic supply merchant
+	0E0	Random/generic enemy
