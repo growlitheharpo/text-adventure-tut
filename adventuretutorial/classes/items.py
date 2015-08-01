@@ -21,6 +21,11 @@ class Gold(BaseItem):
                          value=self.amt)
 
 
+class Gold15(Gold):
+    def __init__(self):
+        super().__init__(15)
+
+
 class Weapon(BaseItem):
     def __init__(self, name, description, value, damage):
         self.damage = damage

@@ -40,15 +40,27 @@ class MapTile:
 class DynamicTile(MapTile):
     def __init__(self, x, y, actors, items, description):
         super().__init__(x, y)
-        self.actors = actors
-        self.items = items
         self.description = description
+
+        self.actors = []
+        self.items = []
+
+        for actor_types in actors:
+            self.actors.append(getattr(classes.enemies, actor_types))
+
+        for item_types in items:
+            self.items.append(getattr(classes.items, item_types))
 
     def intro_text(self):
         return self.description
 
     def modify_player(self, player):
-        pass  # TODO: will later need to implement interacting with actors and items
+        pass  # TODO: will later need to implement interacting with actors and items (should anything be here??)
+
+    def available_actions(self):
+        base_actions = super().available_actions()
+
+        return base_actions
 
 
 class StartingRoom(MapTile):

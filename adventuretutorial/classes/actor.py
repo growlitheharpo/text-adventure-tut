@@ -1,5 +1,7 @@
 __author__ = 'Jay'
 
+import consts as CONST
+
 
 class Actor:
     def __init__(self, hp, inventory):
@@ -20,5 +22,5 @@ class NPC(Actor):
 
 class Animal(NPC):
     def __init__(self, hp, inventory, name, inclination, damage):
-        super().__init__(hp, inventory, name, "ANIMALS", inclination)
+        super().__init__(hp, inventory, name, CONST.ANIMAL_FACTION, inclination)
         self.damage = damage

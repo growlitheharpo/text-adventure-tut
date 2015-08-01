@@ -12,6 +12,7 @@ def load_tiles():
     with open('resources/map.txt', 'r') as f:
         rows = f.readlines()
     x_max = len(rows[0].split('\t'))
+
     for y in range(len(rows)):
         cols = rows[y].split('\t')
         for x in range(x_max):
@@ -41,7 +42,6 @@ def _get_tile(tile_id, x, y):
         for item in root.iter('item'):
             items.append(item.text)
 
-    # return classes.tiles.StartingRoom(x, y)
     return classes.tiles.DynamicTile(x, y, actors, items, root.attrib['description'])
 
 
