@@ -38,9 +38,10 @@ class MapTile:
 
 
 class DynamicTile(MapTile):
-    def __init__(self, x, y, actors, items, description):
+    def __init__(self, x, y, actors, items, description, id):
         super().__init__(x, y)
         self.description = description
+        self.id = id
 
         self.actors = []
         self.items = []

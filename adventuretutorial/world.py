@@ -31,6 +31,9 @@ def _get_tile(tile_id, x, y):
             root = tile
             break
 
+    if root == tree.getroot():  # If root is still the main root, we didn't find the ID
+        raise FileNotFoundError()
+
     actors = []
     items = []
 
@@ -42,7 +45,7 @@ def _get_tile(tile_id, x, y):
         for item in root.iter('item'):
             items.append(item.text)
 
-    return classes.tiles.DynamicTile(x, y, actors, items, root.attrib['description'])
+    return classes.tiles.DynamicTile(x, y, actors, items, root.attrib['description'], tile_id)
 
 
 def tile_exists(x, y):

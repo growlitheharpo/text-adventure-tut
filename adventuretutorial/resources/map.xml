@@ -11,4 +11,6 @@
 		<item id="0">Gold15</item>
 		<item id="1">Dagger</item>
 		</tile>
+	<tile id="CAVUFFF" actors="0" items="0" description="You see a bright light in the distance... ... it grows as you get closer. It's sunlight! Victory is yours!">
+		</tile>
 </tileTypes>
