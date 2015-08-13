@@ -38,7 +38,7 @@ class MapTile:
 
 
 class DynamicTile(MapTile):
-    def __init__(self, x, y, actors, items, description, id):
+    def __init__(self, x, y, p_actors, p_items, description, id):
         super().__init__(x, y)
         self.description = description
         self.id = id
@@ -46,11 +46,12 @@ class DynamicTile(MapTile):
         self.actors = []
         self.items = []
 
-        for actor_types in actors:
-            self.actors.append(getattr(classes.enemies, actor_types))
+        for actor_types in p_actors:
+            self.actors.append(getattr(classes.enemies, actor_types)())
+            # self.actors.append(getattr(classes.enemies, actor_types))()
 
-        for item_types in items:
-            self.items.append(getattr(classes.items, item_types))
+        for item_types in p_items:
+            self.items.append(getattr(classes.items, item_types)())
 
     def intro_text(self):
         return self.description
@@ -60,6 +61,10 @@ class DynamicTile(MapTile):
 
     def available_actions(self):
         base_actions = super().available_actions()
+
+        if len(self.actors) > 0:
+            for i in range(0, len(self.actors)):
+                print(str(i + 1) + ". Speak to " + str(self.actors[i]))
 
         return base_actions
 

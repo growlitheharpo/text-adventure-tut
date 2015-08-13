@@ -19,6 +19,9 @@ class NPC(Actor):
         self.faction = faction
         self.inclination = inclination
 
+    def __str__(self):
+        return self.name
+
 
 class Animal(NPC):
     def __init__(self, hp, inventory, name, inclination, damage):

@@ -1,0 +1,51 @@
+<conversation npc_name="BaseWeaponMerchant">
+	<topic name="topic_intro">
+		<text part="1">Hello! I sell weapons. How can I help you?</text>
+		
+		<response_container>
+			<option choice_text="Can you tell me about this cave?">topic_cave</option>
+			<option choice_text="I'd like to trade.">topic_trade</option>
+			<option choice_text="Goodbye.">topic_goodbye</option>
+		</response_container>
+	</topic>
+	
+	<topic name="topic_cave">
+		<text part="1">Sorry, don't know nothing about it. I just sell swords and daggers.</text>
+		
+		<response_container>topic_intro</response_container>
+	</topic>
+	
+	<topic name="topic_trade">
+		<text part="1" condition="Player.hasObject(classes.items.Dagger) == False">I'll give you a dagger for 10 Gold pieces.</text>
+		<text part="2" condition="Player.hasObject(classes.items.Dagger) == True">Sorry, you wouldn't be able to afford anything else I sell.</text>
+		
+		<response_container>
+			<option condition="Player.hasObject(classes.items.Dagger) == False and Player.goldAmt() >= 10" choice_text="Sure, I'll take it. (-10 Gold)">topic_boughtDagger</option>
+			<option condition="Player.hasObject(classes.items.Dagger) == False and Player.goldAmt() < 10" choice_text="I don't have 10 Gold...">topic_cantAfford</option>
+			<option condition="Player.hasObject(classes.items.Dagger) == True" choice_text="Alright.">topic_alreadyBought</option>
+		</response_container>
+	</topic>
+		
+	<topic name="topic_boughtDagger">
+		<text part="1">Nice doing business with you!</text>
+		
+		<response_container>topic_intro</response_container>
+	</topic>
+	
+	<topic name="topic_cantAfford">
+		<text part="1">Come back when you've got enough then!</text>
+		
+		<response_container>topic_intro</response_container>
+	</topic>
+	
+	<topic name="topic_alreadyBought">
+		<text part="1"> </text>
+		
+		<response_container>topic_intro</response_container>
+	</topic>
+	
+	<topic name="topic_goodbye">
+		<text part="1">Nice doing business with you.</text>
+	</topic>
+	
+</conversation>
